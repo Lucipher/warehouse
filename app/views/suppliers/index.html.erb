@@ -1,0 +1,32 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i>Home"), root_path%> <span class="divider">/</span>
+  </li>
+  <li class="active">供应商列表</li>
+</ul>
+
+<table class="table table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @suppliers.each do |supplier| %>
+      <tr>
+        <td><%= supplier.id %></td>
+        <td><%= link_to supplier.name, supplier_path(supplier) %></td>
+        <td><%= supplier.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_supplier_path(supplier), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', supplier_path(supplier), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_supplier_path, :class => 'btn' %>

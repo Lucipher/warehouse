@@ -1,0 +1,26 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), nil, class: "active" %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= "仓库状态" %>
+  </li>
+</ul>
+
+<div class="row">
+  <div class="span4">
+    <h3>系统当前共有:</h3>
+    <p><b><%= link_to InOrder.all.size, in_orders_path %></b> 条入库请求</p>
+    <p><b><%= link_to OutOrder.all.size, out_orders_path %></b> 条出库请求</p>
+  </div>
+  <div class="span4 well" style="float:right">
+    <span>运行负荷:40%</span>
+    <div class="progress progress-success progress-striped active">
+      <div class="bar" style="width: 40%;"></div>
+    </div>
+    <span>存储状态:70%</span>
+    <div class="progress progress-warning progress-striped active">
+      <div class="bar" style="width: 70%;"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<%= simple_form_for @out_order, :html => { :class => 'form-horizontal' } do |f| %>
+<fieldset>
+  <legend><%= controller.action_name.capitalize %> 出库单</legend>
+  
+  <%= f.association :product, label: "商品" %>
+  <%= f.input :number, as: :string, label: '数量' %>
+  
+  <div class="form-actions">
+    <%= f.submit '生成出库单', :class => 'btn btn-primary' %>
+    <%= link_to '取消', out_orders_path, :class => 'btn' %>
+  </div>
+</fieldset>
+<% end %>

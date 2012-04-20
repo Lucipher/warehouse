@@ -1,0 +1,27 @@
+<h1>Supplier</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @supplier.name %>
+</p>
+
+<p>
+  <b>Address</b><br>
+  <%= @supplier.address %>
+</p>
+
+<p>
+  <b>Mobile</b><br>
+  <%= @supplier.mobile %>
+</p>
+
+<p>
+  <b>Email</b><br>
+  <%= @supplier.email %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', suppliers_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_supplier_path(@supplier), :class => 'btn' %>
+  <%= link_to 'Delete', supplier_path(@supplier), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

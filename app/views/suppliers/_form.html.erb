@@ -1,0 +1,15 @@
+<%= simple_form_for @supplier, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Supplier</legend>
+
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :mobile %>
+    <%= f.input :email %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', suppliers_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

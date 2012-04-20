@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h3>出库单</h3>
+</div>
+
+<p>
+  <b>用户</b><br>
+  <%= @out_order.user.username %>
+</p>
+
+<p>
+  <b>数量</b><br>
+  <%= @out_order.number %>
+</p>
+
+<p>
+  <b>商品</b><br>
+  <%= @out_order.product.name %>
+</p>
+
+<div class="form-actions">
+  <%= link_to '返回', out_orders_path, :class => 'btn'  %>
+  <%= link_to '作废', out_order_path(@out_order), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

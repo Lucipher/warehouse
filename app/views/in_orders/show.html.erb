@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h3>入库单</h3>
+</div>
+
+<p>
+  <b>用户</b><br>
+  <%= @in_order.user.username %>
+</p>
+
+<p>
+  <b>数量</b><br>
+  <%= @in_order.number %>
+</p>
+
+<p>
+  <b>商品</b><br>
+  <%= @in_order.product.name %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', in_orders_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_in_order_path(@in_order), :class => 'btn' %>
+  <%= link_to 'Delete', in_order_path(@in_order), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

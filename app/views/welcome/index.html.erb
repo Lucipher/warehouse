@@ -1,0 +1,67 @@
+<div class="container" style="width:1024px;">
+	<div class="navbar">
+  	<div class="navbar-inner">
+    	<div class="container">
+    		<%= link_to "Octocat", root_path, class: "brand" %>
+    		<ul class="nav">
+    			<li><a rel="#feature" class='scroll'>产品特性</a></li>
+    			<li><a rel="#about" class='scroll'>团队介绍</a></li>
+    			<li><a rel="#contact" class='scroll'>联系我们</a></li>
+    		</ul>
+				<ul class="nav pull-right">
+  				<li><a href="/users/sign_in">登录</a></li>
+  				<li><a href="/users/sign_up">注册</a></li>
+				</ul>
+    	</div>
+  	</div>
+	</div>
+
+	<div id="myCarousel" class="carousel">
+	  <!-- Carousel items -->
+	  <div class="carousel-inner">
+	    <div class="active item">
+	    	<%= image_tag "slider_01.jpg" %>
+	    	<div class="carousel-caption">
+          <h4>易用</h4>
+          <p>界面设计合理，简洁大方。</p>
+        </div>
+	    </div>
+	    <div class="item">
+	    	<%= image_tag "slider_01.jpg" %>
+	    	<div class="carousel-caption">
+          <h4>安全</h4>
+          <p>有效保护数据安全，防止未授权的数据操作。</p>
+        </div>
+	    </div>
+
+	    <div class="item">
+	    	<%= image_tag "slider_01.jpg" %>
+	    	<div class="carousel-caption">
+          <h4>高效</h4>
+          <p>对服务器硬件要求低，平台兼容性好。支持包括移动设备在内的主流终端访问。</p>
+        </div>
+	    </div>
+	  </div>
+	  <!-- Carousel nav -->
+	  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+	
+	<footer style="margin-top:-17px;">
+		<div class="form-actions" style="border-bottom-right-radius:6px;border-bottom-left-radius:4px;">
+			<div >
+			
+			</div>
+			<div class="row">
+				<div class="span2">
+					<h1>Octocat</h1>
+				</div>
+				<div class="span4" style="float:right">
+					<p>Yu Changhong & Hu Zhengping </p>
+					<p>Copyright &copy; 2012 All Rights Reserved.</p>
+				</div>
+				
+			</div>
+		</div>
+	</footer>
+</div>
