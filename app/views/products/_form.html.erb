@@ -1,13 +1,13 @@
 <%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-  <legend><%= controller.action_name.capitalize %> Product</legend>
-  <%= f.input :name %>
-  <%= f.input :pid %>
-  <%= f.input :number, as: :string %>
-  <%= f.association :supplier %>
+  <legend><%= "#{btn}商品资料" %></legend>
+  <%= f.input :name, label: "商品名" %>
+  <%= f.input :pid, label: "商品编号" %>
+  <%= f.input :number, as: :string, label: "数量" %>
+  <%= f.association :supplier, label: "供应商" %>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit '提交', :class => 'btn btn-primary' %>
     <%= link_to '取消', products_path, :class => 'btn' %>
   </div>
 </fieldset>

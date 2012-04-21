@@ -1,14 +1,10 @@
-<%= simple_form_for @supplier, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-    <legend><%= controller.action_name.capitalize %> Supplier</legend>
-    <%= f.input :name   %>
-    <%= f.input :address %>
-    <%= f.input :mobile %>
-    <%= f.input :email %>
-
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to '取消', suppliers_path, :class => 'btn' %>
-    </div>
-  </fieldset>
+<%= simple_form_for [:area, :shelf, resource], :html => { :class => 'form-horizontal' } do |f| %>
+<fieldset>
+  <legend><%= "#{btn}层" %></legend>
+  <%= f.input :content, as: 'string', label: "容量" %>
+  <div class="form-actions">
+    <%= f.submit "提交", :class => 'btn btn-primary' %>
+    <%= link_to '取消', area_shelves_path, :class => 'btn' %>
+  </div>
+</fieldset>
 <% end %>

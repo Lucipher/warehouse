@@ -1,27 +1,24 @@
-<h1>企业信息</h1>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
+  </li>
+  <li><%= link_to "区域列表", areas_path%></li> <span class="divider">/</span>
+  <li class="active">区域详情</li>
+</ul>
+
+<h1></h1>
 
 <p>
-  <b>名称</b><br>
-  <%= @supplier.name %>
+  <b>区域名称</b><br>
+  <%= resource.name %>
 </p>
-
 <p>
-  <b>地址</b><br>
-  <%= @supplier.address %>
-</p>
-
-<p>
-  <b>联系电话</b><br>
-  <%= @supplier.mobile %>
-</p>
-
-<p>
-  <b>邮箱</b><br>
-  <%= @supplier.email %>
+  <b>货架数量</b><br>
+  <%= resource.shelves.size %>
 </p>
 
 <div class="form-actions">
-  <%= link_to '返回', suppliers_path, :class => 'btn'  %>
-  <%= link_to '编辑', edit_supplier_path(@supplier), :class => 'btn' %>
-  <%= link_to '删除', supplier_path(@supplier), :method => 'delete', :confirm => '确认删除？！', :class => 'btn btn-danger' %>
+  <%= link_to '返回', collection_path, :class => 'btn'  %>
+  <%= link_to '编辑', edit_resource_path(resource), :class => 'btn' %>
+  <%= link_to '删除', resource_path(resource), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
