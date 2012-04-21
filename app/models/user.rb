@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_many :out_orders
   belongs_to :in_orders
 
-
   def role2s
   	case self.role
   	when 5

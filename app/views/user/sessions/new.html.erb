@@ -13,13 +13,18 @@
   <div class="row">
     <div class="span6 offset3">
     <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
-
-    <%= f.error_notification %>
+    
+    <% if flash[:alert] %>
+    <div class="alert alert-error">
+      <a class="close" data-dismiss="alert">×</a>
+      <p><%= flash[:alert] %></p>
+    </div>
+    <% end %>
 
     <fieldset>
       <legend>用户登录</legend>
-      <%= f.input :email, :required => true, :autofocus => true %>
-      <%= f.input :password, :required => true %>
+      <%= f.input :email,:autofocus => true %>
+      <%= f.input :password %>
 
       <div class="form-actions" style="margin-bottom:0">
         <%= f.submit '登录', :class => 'btn btn-primary' %>

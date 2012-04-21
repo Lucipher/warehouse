@@ -10,6 +10,7 @@
 <div class="row">
   <div class="span4">
     <h3>系统当前共有:</h3>
+    <p><b><%= @total_content %></b> 总容量</p>
     <p><b><%= link_to InOrder.all.size, in_orders_path %></b> 条入库请求</p>
     <p><b><%= link_to OutOrder.all.size, out_orders_path %></b> 条出库请求</p>
   </div>

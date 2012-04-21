@@ -22,7 +22,7 @@
         <td><%= user.id %></td>
         <td><%= link_to user.username, user_path(user) %></td>
         <td><%= user.email %></td>
-        <td><%= user.last_sign_in_ip %></br><%= user.last_sign_in_at.to_formatted_s(:db) %></td>
+        <td><%= user.last_sign_in_ip %></br><%= user.last_sign_in_atto_formatted_s(:db) %></td>
         <td><%= user.role %></td>
         <td><%= user.created_at %></td>
         <td>

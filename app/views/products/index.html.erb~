@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
   <li>
-    <%= link_to raw("<i class='icon-home'></i>首页"), root_path%> <span class="divider">/</span>
+    <%= link_to raw("<i class='icon-home'></i>主页"), root_path%> <span class="divider">/</span>
   </li>
   <li class="active">产品列表</li>
 </ul>

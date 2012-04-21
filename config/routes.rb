@@ -12,9 +12,12 @@ Warehouse::Application.routes.draw do
   resources :users
   resources :products
   resources :dashboard
-  resources :areas
-  resources :shelves
-  resources :layers
+
+  resources :areas do
+    resources :shelves do
+      resources :layers
+    end
+  end
 
   resources :out_orders do
     get 'change', :on => :member
