@@ -8,6 +8,9 @@ Warehouse::Application.routes.draw do
   authenticated :user do
   	root :to => 'dashboard#index'
 	end
+
+  get "/products/search", to: "products#search"
+
   resources :suppliers
   resources :users
   resources :products

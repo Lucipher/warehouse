@@ -1,23 +1,38 @@
-<div class="page-header">
-  <h3>出库单</h3>
-</div>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
+  </li>
 
-<p>
-  <b>用户</b><br>
-  <%= @out_order.user.username %>
-</p>
+  <li>
+    <%= link_to "出库单列表", out_orders_path%> <span class="divider">/</span>
+  </li>
+  <li class="active">出库单详情</li>
+</ul>
 
-<p>
-  <b>数量</b><br>
-  <%= @out_order.number %>
-</p>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+    	<th class='span4' colspan="3">出库单</th>
+    	<th>出库单号: <%= @out_order.oid %></th>
+    </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan='2' ><b>申请人</b></td>
+			<td>客户:<%= @supplier.name%></td>
+			<td>联系人:<%= @supplier.interface %></td>
+			<td>系统帐号:<%= @user.username %></td>
+		</tr>
+		<tr>
+			<td>电话:<%= @supplier.mobile%></td>
+			<td colspan="2">联系地址:<%= @supplier.address %></td>
+		</tr>
+		<tr>
+			<td><b>出库商品</b></td>
+			<td>商品名:<%= @product.name %></td>
+			<td>商品编码:<%= @product.pid %></td>
+			<td>商品数量:<%= @oi.number%></td>
+		</tr>
+	</tbody>
+</table>
 
-<p>
-  <b>商品</b><br>
-  <%= @out_order.product.name %>
-</p>
-
-<div class="form-actions">
-  <%= link_to '返回', out_orders_path, :class => 'btn'  %>
-  <%= link_to '作废', out_order_path(@out_order), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
-</div>

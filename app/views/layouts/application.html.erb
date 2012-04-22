@@ -69,7 +69,7 @@
 				<div class="well sidebar-nav" style="padding-left:0;padding-right:0;">
 					<ul class="nav nav-list">
 						<% if current_user.role == 5 || current_user.role == 4 %>
-						<li class="nav-header">入库出库功能</li>
+						<li class="nav-header">入库/出库</li>
 						<li>
 							<a href="<%= out_orders_path %>"> 
 								<i class='icon-arrow-right'></i>出库单
@@ -114,6 +114,18 @@
 				</div><!--/.well -->
 			</div><!--/span-->
 			<div class="span9">
+				<%- flash.each do |name, msg| -%>
+					<% unless name == "error" %>
+	        <div class="alert-info alert">
+	        <% else %>
+	        <div class="alert-error alert">
+	        <% end %>
+	        	<a class="close" data-dismiss="alert">×</a>
+	        	<h4 class="alert-heading">注意:</h4>
+	          <%= msg %>
+	        </div>
+        <%- end -%>
+
 				<%= yield %>
 			</div>
 		</div><!--/row-->

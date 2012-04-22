@@ -2,19 +2,34 @@
   <li>
     <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
   </li>
-  <li><%= link_to "区域列表", areas_path%></li> <span class="divider">/</span>
-  <li class="active">区域详情</li>
+  <li>
+    <%= link_to "客户列表", suppliers_path%> <span class="divider">/</span>
+  </li>
+  <li class="active">客户详情</li>
 </ul>
 
-<h1></h1>
-
 <p>
-  <b>区域名称</b><br>
+  <b>公司名</b><br>
   <%= resource.name %>
 </p>
 <p>
-  <b>货架数量</b><br>
-  <%= resource.shelves.size %>
+  <b>联系人</b><br>
+  <%= resource.interface %>
+</p>
+
+<p>
+  <b>邮箱</b><br>
+  <%= resource.email %>
+</p>
+
+<p>
+  <b>电话</b><br>
+  <%= resource.mobile %>
+</p>
+
+<p>
+  <b>地址</b><br>
+  <%= resource.address %>
 </p>
 
 <div class="form-actions">

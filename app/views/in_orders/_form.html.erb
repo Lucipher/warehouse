@@ -1,10 +1,9 @@
 <%= simple_form_for @in_order, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-  <legend><%= controller.action_name.capitalize %> 入库单</legend>
+  <legend><%= btn %>入库单</legend>
   
-  <%= f.association :user %>
-  <%= f.association :product %>
-  <%= f.input :number, as: :string %>
+  <%= f.association :product, label: "选择商品" %>
+  <%= f.input :number, as: :string, label: "商品数量" %>
   
   <div class="form-actions">
     <%= f.submit '生成入库单', :class => 'btn btn-primary' %>

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
 
   has_many :out_orders
+  has_one :supplier
   belongs_to :in_orders
 
   def role2s

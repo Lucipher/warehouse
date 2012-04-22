@@ -1,27 +1,30 @@
-<h1>Product</h1>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i>首页"), root_path%> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "产品列表", products_path%> <span class="divider">/</span>
+  </li>
+  <li class="active">商品信息</li>
+</ul>
 
 <p>
-  <b>Name</b><br>
+  <b>商品名</b><br>
   <%= @product.name %>
 </p>
 
 <p>
-  <b>Pid</b><br>
+  <b>商品编码</b><br>
   <%= @product.pid %>
 </p>
 
 <p>
-  <b>Number</b><br>
+  <b>价格</b><br>
   <%= @product.number %>
 </p>
 
-<p>
-  <b>Supplier</b><br>
-  <%= @product.supplier_id %>
-</p>
-
 <div class="form-actions">
-  <%= link_to 'Back', products_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_product_path(@product), :class => 'btn' %>
-  <%= link_to 'Delete', product_path(@product), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to '返回', products_path, :class => 'btn'  %>
+  <%= link_to '编辑', edit_product_path(@product), :class => 'btn' %>
+  <%= link_to '删除', product_path(@product), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

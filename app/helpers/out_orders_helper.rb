@@ -1,13 +1,14 @@
+# -*- encoding: utf-8 -*-
 module OutOrdersHelper
 	def btn_s(out_order)
 		order = out_order
 		case order.status
 		when 0
-			return "kaishi"
+			return "开始捡货"
 		when 1
-			return "qurenruku"
+			return "确认出库"
 		else
-			return "kaishi "
+			return "开始捡货"
 		end
 	end
 end

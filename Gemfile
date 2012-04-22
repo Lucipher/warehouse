@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.2'
 gem 'mysql2'
@@ -26,3 +26,4 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'inherited_resources'
 gem 'cancan'
+gem 'kaminari'

@@ -2,13 +2,41 @@
   <li>
     <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
   </li>
-  <li class="active">入库单列表</li>
+  <% if params[:search] %>
+    <li>
+      <%= link_to "入库单列表", in_orders_path%> <span class="divider">/</span>
+    </li>
+    <li class="active">搜索结果</li>
+  <% else %>
+    <li class="active">入库单列表</li>
+  <% end %>
 </ul>
+
+<div class="row">
+  <div class="span2">
+    <% if current_user.role == 5%>
+      <%= link_to '申请入库', new_in_order_path, :class => 'btn btn-info' %>
+    <% end %>
+  </div>
+  <div style="float:right">
+    <form action="/in_orders" method="get">
+      <input type="text" id="search" name="search" data-provide="typeahead" value="入库单号搜索">
+    </form>
+  </div>
+</div>
+
+<% if params[:search] %>
+<div class="alert alert-success">
+  <a class="close" data-dismiss="alert">×</a>
+  <h3>"<%= params[:search] %>" <small>的搜索结果如下</small></h3>
+</div>
+<% end %>
 
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>#</th>
+      <th>入库单号</th>
       <th>申请人</th>
       <th>生成日期</th>
       <th>当前状态</th>
@@ -18,10 +46,11 @@
   <tbody>
     <% @in_orders.each do |i| %>
       <tr>
-        <td><%= link_to i.id, in_order_path(i) %></td>
+        <td><%= i.id%></td>
+        <td><%= link_to i.oid || "OC", in_order_path(i) %></td>
         <td><%= i.user.username %></td>
-        <td><%= i.created_at %></td>
-        <td><%= i.status || "未开始" %></td>
+        <td><%= i.created_at.to_formatted_s(:db) %></td>
+        <td><%= i.status || "未到库" %></td>
         <td>
           <% if current_user.role == 4 %>
           <%= link_to '开始', edit_in_order_path(i), :class => 'btn btn-mini btn-primary' %>
@@ -32,6 +61,5 @@
     <% end %>
   </tbody>
 </table>
-<% if current_user.role == 5%>
-<%= link_to '申请入库', new_in_order_path, :class => 'btn' %>
-<% end %>
+
+<%= paginate @in_orders %>

@@ -20,5 +20,14 @@ $(function(){
 		var rel=$(this).attr("rel");
 		var pos=$(rel).offset().top;
 		$("html,body").animate({scrollTop:pos}, 1000);
+	});
+
+	$('#search').focus(function(){
+    $('#search').val('');
+  });
+
+ 	$("#search").blur(function(){
+ 	 	$('#search').val('搜索商品');
+	});
 })
-})
+

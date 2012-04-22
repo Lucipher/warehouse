@@ -1,24 +1,37 @@
-<div class="page-header">
-  <h3>入库单</h3>
-</div>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
+  </li>
 
-<p>
-  <b>用户</b><br>
-  <%= @in_order.user.username %>
-</p>
+  <li>
+    <%= link_to "入库单列表", in_orders_path%> <span class="divider">/</span>
+  </li>
+  <li class="active">入库单详情</li>
+</ul>
 
-<p>
-  <b>数量</b><br>
-  <%= @in_order.number %>
-</p>
-
-<p>
-  <b>商品</b><br>
-  <%= @in_order.product.name %>
-</p>
-
-<div class="form-actions">
-  <%= link_to 'Back', in_orders_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_in_order_path(@in_order), :class => 'btn' %>
-  <%= link_to 'Delete', in_order_path(@in_order), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
-</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class='span4' colspan="3">入库单</th>
+      <th>入库单号: <%= @in_order.oid %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan='2' ><b>申请人</b></td>
+      <td>客户:<%= @supplier.name%></td>
+      <td>联系人:<%= @supplier.interface %></td>
+      <td>系统帐号:<%= @user.username %></td>
+    </tr>
+    <tr>
+      <td>电话:<%= @supplier.mobile%></td>
+      <td colspan="2">联系地址:<%= @supplier.address %></td>
+    </tr>
+    <tr>
+      <td rowspan='2' ><b>入库商品</b></td>
+      <td>商品:IPhone 4S</td>
+      <td>商品编号:NP-52</td>
+      <td>数量:500</td>
+    </tr>
+  </tbody>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421104047) do
+ActiveRecord::Schema.define(:version => 20120422083552) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(:version => 20120421104047) do
   create_table "in_order_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "number"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "in_order_id"
   end
 
   create_table "in_orders", :force => true do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120421104047) do
     t.integer  "product_id"
     t.integer  "number"
     t.integer  "status"
+    t.string   "oid"
   end
 
   create_table "layers", :force => true do |t|
@@ -44,11 +46,21 @@ ActiveRecord::Schema.define(:version => 20120421104047) do
     t.integer  "locked"
   end
 
+  create_table "order_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "number"
+    t.integer  "order_id"
+    t.string   "order_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "out_order_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "number"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "out_order_id"
   end
 
   create_table "out_orders", :force => true do |t|
@@ -58,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20120421104047) do
     t.integer  "product_id"
     t.integer  "number"
     t.integer  "status"
+    t.string   "oid"
   end
 
   create_table "permissions", :force => true do |t|
@@ -84,6 +97,13 @@ ActiveRecord::Schema.define(:version => 20120421104047) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "storages", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "number"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "suppliers", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -91,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20120421104047) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "interface"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

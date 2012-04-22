@@ -1,14 +1,22 @@
-<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
-<fieldset>
-  <legend><%= "#{btn}商品资料" %></legend>
-  <%= f.input :name, label: "商品名" %>
-  <%= f.input :pid, label: "商品编号" %>
-  <%= f.input :number, as: :string, label: "数量" %>
-  <%= f.association :supplier, label: "供应商" %>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "产品列表", products_path%> <span class="divider">/</span>
+  </li>
+  <li class="active"><%= btn %>商品</li>
+</ul>
 
-  <div class="form-actions">
-    <%= f.submit '提交', :class => 'btn btn-primary' %>
-    <%= link_to '取消', products_path, :class => 'btn' %>
-  </div>
-</fieldset>
+<%= simple_form_for resource, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <%= f.input :name, label: "商品名" %>
+    <%= f.input :pid, label: "商品编号" %>
+    <%= f.input :number, as: :string, label: "数量" %>
+
+    <div class="form-actions">
+      <%= f.submit '提交', :class => 'btn btn-primary' %>
+      <%= link_to '取消', products_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

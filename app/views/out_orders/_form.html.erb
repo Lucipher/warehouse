@@ -1,6 +1,16 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "出库单列表", out_orders_path%> <span class="divider">/</span>
+  </li>
+  <li class="active"><%= btn %>出库单</li>
+</ul>
+
 <%= simple_form_for @out_order, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-  <legend><%= controller.action_name.capitalize %> 出库单</legend>
+  <%= f.error_notification %>
   
   <%= f.association :product, label: "商品" %>
   <%= f.input :number, as: :string, label: '数量' %>

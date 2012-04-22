@@ -1,10 +1,25 @@
-<%= simple_form_for [:area, :shelf, resource], :html => { :class => 'form-horizontal' } do |f| %>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to raw("<i class='icon-home'></i> 首页"), root_path%> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "客户列表", suppliers_path%> <span class="divider">/</span>
+  </li>
+  <li class="active"><%= btn %>客户</li>
+</ul>
+
+<%= simple_form_for resource, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-  <legend><%= "#{btn}层" %></legend>
-  <%= f.input :content, as: 'string', label: "容量" %>
+  <%= f.input :name, label: "公司名" %>
+  <%= f.input :interface, label: "联系人" %>
+  <%= f.input :email, label: "邮箱" %>
+  <%= f.input :mobile, label: "电话"%>
+  <%= f.input :address, label: "地址" %>
+  <%= f.input :user_id, collection: User.all.collect {|u| [ u.username, u.id ] }, label: '关联帐号' %>
+
   <div class="form-actions">
     <%= f.submit "提交", :class => 'btn btn-primary' %>
-    <%= link_to '取消', area_shelves_path, :class => 'btn' %>
+    <%= link_to '取消', suppliers_path, :class => 'btn' %>
   </div>
 </fieldset>
 <% end %>
